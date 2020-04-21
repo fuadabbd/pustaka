@@ -48,7 +48,7 @@
 						<input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama Lengkap"> 
 					</div> 
 					<div class="form-group"> 
-						<input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Alamat Lengkap"> 
+						<input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Alamat Tempat Tinggal"> 
 					</div> 
 					<div class="form-group"> 
 						<input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Alamat Email"> 
