@@ -8,12 +8,13 @@
     <title>Pustaka-Booking | <?= $judul; ?></title>
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/logo/'); ?> logo-pb.png">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/user/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/user/css/custom.css">
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> 
     <link href="<?= base_url('assets/'); ?>datatable/datatables.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e81562">
         <div class="container">
             <a class="navbar-brand" href="<?= base_url(); ?>">PUSTAKA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
