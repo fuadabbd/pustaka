@@ -22,7 +22,7 @@
                         <!-- Nav Item - Dashboard -->
                         <li class="nav-item">
                             <a class="nav-link pb-0" href="<?= base_url('admin'); ?>">
-                                <i class="fa fa-fw fa-book"></i>
+                                <i class="fa fa-fw fa-home"></i>
                                 <span>Dashboard</span></a>
                         </li>
                     </li>
@@ -39,7 +39,7 @@
                         <!-- Nav Item - Dashboard -->
                         <li class="nav-item">
                             <a class="nav-link pb-0" href="<?= base_url('buku/kategori'); ?>">
-                                <i class="fa fa-fw fa-book"></i>
+                                <i class="fa fa-fw fa-database"></i>
                                 <span>Kategori Buku</span></a>
                         </li>
                         <li class="nav-item">
@@ -49,13 +49,13 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link pb-0" href="<?= base_url('user/anggota'); ?>">
-                                <i class="fa fa-fw fa-book"></i>
+                                <i class="fa fa-fw fa-users"></i>
                                 <span>Data Anggota</span></a>
                         </li>
                     </li>
                 <!-- Divider -->
                 <hr class="sidebar-divider mt-3">
-
+                <!-- Heading -->
                 <div class="sidebar-heading">
                     Transaksi
                 </div>
@@ -65,24 +65,51 @@
                         <li class="nav-item">
                             <a class="nav-link pb-0" href="<?= base_url('pinjam'); ?>">
                                 <i class="fa fa-fw fa-shopping-cart"></i>
-                                <span>Data Pinjaman</span></a>
+                                <span>Data Peminjaman</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link pb-0" href="<?= base_url('pinjam/daftarBooking'); ?>">
                                 <i class="fa fa-fw fa-list"></i>
                                 <span>Data Booking</span></a>
+                        </li>
                     </li>
-                </li>
-                <!-- Divider -->
+                
+                    <!-- Divider -->
                 <hr class="sidebar-divider mt-3">
-
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-        </ul>
-        <!-- End of Sidebar --   > 
-
-        
+  
+            <!-- Heading -->
+                <div class="sidebar-heading">
+                    Laporan
+                </div>
+                    <!-- Nav Item - Dashboard -->
+                    <li class="nav-item active">
+                        <!-- Nav Item - Dashboard -->
+                        <li class="nav-item">
+                            <a class="nav-link pb-0" href="<?= base_url('Laporan/laporan_buku'); ?>">
+                                <i class="fa fa-fw fa-address-book"></i>
+                                <span>Laporan Data Buku</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pb-0" href="<?= base_url('Laporan/laporan_anggota'); ?>">
+                                <i class="fa fa-fw fa-address-book"></i>
+                                <span>Laporan Data Anggota</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pb-0" href="<?= base_url('Laporan/laporan_pinjam'); ?>">
+                                <i class="fa fa-fw fa-address-book"></i>
+                                <span>Laporan Peminjaman</span></a>
+                        </li>
+                    </li>                
+                    <!-- Divider -->
+                <hr class="sidebar-divider mt-3">
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0 id="sidebartoggle"></button>
+            </div>
+              </ul>
         
