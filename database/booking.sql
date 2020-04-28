@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2020 at 12:03 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Waktu pembuatan: 28 Apr 2020 pada 22.22
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.2.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pustaka`
+-- Database: `booking`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking`
+-- Struktur dari tabel `booking`
 --
 
 CREATE TABLE `booking` (
@@ -38,7 +37,7 @@ CREATE TABLE `booking` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking_detail`
+-- Struktur dari tabel `booking_detail`
 --
 
 CREATE TABLE `booking_detail` (
@@ -50,7 +49,7 @@ CREATE TABLE `booking_detail` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku`
+-- Struktur dari tabel `buku`
 --
 
 CREATE TABLE `buku` (
@@ -67,10 +66,20 @@ CREATE TABLE `buku` (
   `image` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `buku`
+--
+
+INSERT INTO `buku` (`id`, `judul_buku`, `id_kategori`, `pengarang`, `penerbit`, `tahun_terbit`, `isbn`, `stok`, `dipinjam`, `dibooking`, `image`) VALUES
+(2, 'Statistika Dengan Program Komputer', 1, 'Ahmad Kholiqul Amin', 'Deep Publish', 2014, '15119', 16, -9, 3, 'img1587405195.jpg'),
+(3, 'Mudah Belajar Komputer Untuk Anak', 1, 'Bambang Agus Setiawan', 'Huta Media', 2014, '1112', 21, -9, 3, 'img1587405578.jpg'),
+(4, 'PHP KOMPLET', 1, 'Jubilee', 'Elex Media Komputindo', 2017, '4456', 28, -9, 1, 'img1587490016.jpg'),
+(5, 'Detektif Conan', 1, 'Okigawa Sasuke Minori', 'Cultura', 2016, '11123', 1, -1, -3, 'img1587969677.jpg');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_pinjam`
+-- Struktur dari tabel `detail_pinjam`
 --
 
 CREATE TABLE `detail_pinjam` (
@@ -79,10 +88,33 @@ CREATE TABLE `detail_pinjam` (
   `denda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `detail_pinjam`
+--
+
+INSERT INTO `detail_pinjam` (`no_pinjam`, `id_buku`, `denda`) VALUES
+('25042020001', 3, 5000),
+('25042020001', 2, 5000),
+('25042020001', 4, 5000),
+('25042020001', 2, 5000),
+('25042020001', 3, 5000),
+('25042020001', 4, 5000),
+('25042020002', 2, 5000),
+('25042020002', 3, 5000),
+('25042020002', 4, 5000),
+('27042020003', 4, 5000),
+('27042020003', 5, 5000),
+('27042020003', 3, 5000),
+('27042020004', 3, 5000),
+('27042020004', 4, 5000),
+('28042020005', 2, 5000),
+('28042020006', 3, 5000),
+('28042020006', 2, 5000);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -90,10 +122,17 @@ CREATE TABLE `kategori` (
   `kategori` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `kategori`
+--
+
+INSERT INTO `kategori` (`id`, `kategori`) VALUES
+(1, 'buku');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pinjam`
+-- Struktur dari tabel `pinjam`
 --
 
 CREATE TABLE `pinjam` (
@@ -107,10 +146,22 @@ CREATE TABLE `pinjam` (
   `total_denda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pinjam`
+--
+
+INSERT INTO `pinjam` (`no_pinjam`, `tgl_pinjam`, `id_booking`, `id_user`, `tgl_kembali`, `tgl_pengembalian`, `status`, `total_denda`) VALUES
+('25042020001', '2020-04-25', '23042020001', 3, '2020-04-28', '2020-04-27', 'Kembali', 0),
+('25042020002', '2020-04-25', '25042020001', 4, '2020-04-28', '2020-04-25', 'Kembali', 0),
+('27042020003', '2020-04-27', '27042020001', 4, '2020-04-30', '2020-04-27', 'Kembali', 0),
+('27042020004', '2020-04-27', '27042020001', 5, '2020-04-30', '2020-04-27', 'Kembali', 0),
+('28042020005', '2020-04-28', '27042020001', 5, '2020-05-01', '2020-04-28', 'Kembali', 0),
+('28042020006', '2020-04-28', '28042020001', 5, '2020-05-01', '0000-00-00', 'Pinjam', 0);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Struktur dari tabel `role`
 --
 
 CREATE TABLE `role` (
@@ -121,7 +172,7 @@ CREATE TABLE `role` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temp`
+-- Struktur dari tabel `temp`
 --
 
 CREATE TABLE `temp` (
@@ -140,7 +191,7 @@ CREATE TABLE `temp` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -156,90 +207,97 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `nama`, `alamat`, `email`, `image`, `password`, `role_id`, `is_active`, `tanggal_input`) VALUES
+(5, 'bambang', 'Jl. Pengayoman', 'dallafuad@gmail.com', 'default.jpg', '$2y$10$qKe1XHvmx869fFHdrTauqegv/oVgZLTPOiF/z8raIBluHaNFFH2hi', 2, 1, 1587976933);
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `booking`
+-- Indeks untuk tabel `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`id_booking`);
 
 --
--- Indexes for table `booking_detail`
+-- Indeks untuk tabel `booking_detail`
 --
 ALTER TABLE `booking_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `buku`
+-- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `role`
+-- Indeks untuk tabel `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `temp`
+-- Indeks untuk tabel `temp`
 --
 ALTER TABLE `temp`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `booking_detail`
+-- AUTO_INCREMENT untuk tabel `booking_detail`
 --
 ALTER TABLE `booking_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `buku`
+-- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `temp`
+-- AUTO_INCREMENT untuk tabel `temp`
 --
 ALTER TABLE `temp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
